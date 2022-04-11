@@ -1,7 +1,7 @@
 const {model, Schema} = require('mongoose');
 
 const AdminUserSchema = new Schema({
-  userName: {
+  name: {
     type: String,
     required: true,
     trim: true,
@@ -9,7 +9,7 @@ const AdminUserSchema = new Schema({
     minlength: 2,
     maxlength: 50,
   },
-  userEmail: {
+  email: {
     type: String,
     required: true,
     trim: true,
@@ -17,7 +17,7 @@ const AdminUserSchema = new Schema({
     minlength: 5,
     maxlength: 100
   },
-  userPassword: {
+  password: {
     type: String,
     required:true,
     trim: true,
