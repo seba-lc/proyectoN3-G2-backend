@@ -30,7 +30,6 @@ exports.checkAdminToken = (req, res, next) => {
 exports.checkToken = (req, res, next) => {
   const token = req.header('x-auth-token');
   if(!token){
-    
     res.status(400).json({ok: false, message: 'Token no válido'});
     return
   }

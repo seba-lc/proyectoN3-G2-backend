@@ -8,13 +8,21 @@ const CategorySchema = new Schema({
     required: true,
     trim: true,
     uppercase: true,
+    unique: true,
     minlength: 2,
     maxlength: 50
   },
-  State: { //CONSULTAR POR ESTA PROPIEDAD
+  state: { //CONSULTAR POR ESTA PROPIEDAD
+    type: Boolean,
+    default: false,
+    required: true
+  },
+  bgColor: {
     type: String,
-    uppercase: true,
-    enum: ['HABILITADA', 'DESHABILITADA']
+    trim: true,
+    uppercase: false,
+    minlength: 2,
+    maxlength: 50
   }
 }, {
   versionKey: false,

@@ -52,4 +52,16 @@ usersCtrl.getUserByEmail = async (req, res) => {
   }
 }
 
+usersCtrl.getUserByToken = async (req, res) => {
+  try {
+    const user = await User.findById(req.id).select('-_id name email');
+    res.status(200).json(user)
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      message: 'Error al cargar el usuario, intentelo nuevamente'
+    })
+  }
+}
+
 module.exports = usersCtrl;

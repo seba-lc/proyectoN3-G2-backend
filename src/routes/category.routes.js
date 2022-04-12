@@ -1,11 +1,13 @@
 const { Router } = require('express');
+const { checkAdminToken } = require('../middlewares/auth');
 const categoryCtrl = require('./../controllers/category.controllers');
 
 const router = Router();
 
-const {} = categoryCtrl;
+const {createCategory, getCategoriesChecked} = categoryCtrl;
 
 router.route('/')
-  .post();
+  .post(/*checkAdminToken, */createCategory)
+  .get(getCategoriesChecked);
 
 module.exports = router;
