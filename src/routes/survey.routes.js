@@ -7,7 +7,7 @@ const router = Router();
 const { createSurvey, getPendingSurveys, getSurveysByCategory } = surveysCtrl;
 
 router.route('/')
-  .post(checkToken, createSurvey)
+  .post(/*checkToken, */createSurvey)
   .get(checkAdminToken, getPendingSurveys);
 
 router.route('/:category')

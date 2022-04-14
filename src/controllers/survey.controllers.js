@@ -2,7 +2,7 @@ const Survey = require('./../models/Survey');
 
 const surveysCtrl = {};
 
-/*surveyName, questions ([]), answers ([]), category, token */
+/*surveyName, questions ([idQuestion1, idQuestion2, etc.]), category, token */
 surveysCtrl.createSurvey = async (req, res) => {
   try {
     const newSurvey = await new Survey(req.body);
@@ -39,9 +39,9 @@ surveysCtrl.getPendingSurveys = async (req, res) => {
 /* token, category */
 surveysCtrl.getSurveysByCategory = async (req, res) => {
   try {
-    const surveys = await Survey.find({category: req.params.category}, '-_id -createdAt -updatedAt');
+    const surveys = await Survey.find({category: req.params.category}, '-_id -createdAt -updatedAt').populate('questions', '-_id');
     if(surveys.length === 0){
-      res.status(200).json({message: 'No hay encuestas de la categoría especificada'});
+      res.status(200).json([]);
       return
     }
     res.status(200).json(surveys);

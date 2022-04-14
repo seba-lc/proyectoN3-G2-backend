@@ -7,6 +7,7 @@ const userRouter = require('./routes/user.routes');
 const adminUserRouter = require('./routes/adminUser.routes');
 const surveyRouter = require('./routes/survey.routes');
 const categoryRouter = require('./routes/category.routes');
+const questionRouter = require('./routes/question.routes')
 
 const app = express();
 require('dotenv').config();
@@ -32,3 +33,13 @@ app.use('/api/encuestas/users', userRouter);
 app.use('/api/encuestas/adminUsers', adminUserRouter);
 app.use('/api/encuestas/surveys', surveyRouter);
 app.use('/api/encuestas/category', categoryRouter);
+app.use('/api/encuestas/question', questionRouter);
+
+/*
+{
+    "surveyName": "Mundial Qatar 2022",
+    "questions": [],
+    "answers": true,
+    "category": 
+}
+*/

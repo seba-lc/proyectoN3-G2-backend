@@ -17,13 +17,9 @@ const SurveySchema = new Schema({
     default: false
   },
   questions: {
-    type: Array,
-    required: true,
-  },
-  answers: {
-    type: Array,
-    required: true,
-    default: []
+    type: [Schema.Types.ObjectId],
+    ref: 'Question',
+    required: true
   },
   category: {
     type: String,
