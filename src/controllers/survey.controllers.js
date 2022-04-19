@@ -93,4 +93,18 @@ surveysCtrl.updateSurveyById = async (req, res) => {
   }
 }
 
+surveysCtrl.deleteSurvey = async (req,res)=>{
+  try {
+    const id = req.params.id;
+    const surveyBorrado = await Survey.findByIdAndDelete(id);
+   if (!surveyBorrado) {
+    return res.status(404).json({ok:true, message:'Eliminación correcta'});
+   }
+   res.status(200).json({mensaje:'La encuesta fue borrada correctamente'})
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ok:false, message:'Ha ocurrido un error'});
+  }
+}
+
 module.exports = surveysCtrl;
