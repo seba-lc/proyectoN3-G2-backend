@@ -8,6 +8,7 @@ const adminUserRouter = require('./routes/adminUser.routes');
 const surveyRouter = require('./routes/survey.routes');
 const categoryRouter = require('./routes/category.routes');
 const questionRouter = require('./routes/question.routes')
+const answerRouter = require('./routes/answer.routes')
 
 const app = express();
 require('dotenv').config();
@@ -34,6 +35,7 @@ app.use('/api/encuestas/adminUsers', adminUserRouter);
 app.use('/api/encuestas/surveys', surveyRouter);
 app.use('/api/encuestas/category', categoryRouter);
 app.use('/api/encuestas/question', questionRouter);
+app.use('/api/encuestas/answers', answerRouter);
 
 /*
 {

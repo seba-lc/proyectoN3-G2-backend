@@ -20,7 +20,6 @@ surveysCtrl.createSurvey = async (req, res) => {
 /*adminToken */
 surveysCtrl.getPendingSurveys = async (req, res) => {
   try {
-    console.log('hola');
     const surveys = await Survey.find({state: false}).populate('questions', '-_id');
     if(surveys.length === 0){
       res.status(200).json({message: 'No hay encuestas pendientes de aprobación'});
@@ -72,7 +71,6 @@ surveysCtrl.getSurveyById = async (req, res) => {
   try {
     const survey = await Survey.findById(req.params.id).populate('questions','-_id');
     res.status(200).json(survey);
-    console.log(survey);
   } catch (error) {
     console.log(error);
     res.status(404).json({
