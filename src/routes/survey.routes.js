@@ -4,7 +4,7 @@ const surveysCtrl = require('./../controllers/survey.controllers');
 
 const router = Router();
 
-const { createSurvey, getPendingSurveys, getSurveysByCategory, getPublishedSurveys, getSurveyById, updateSurveyById } = surveysCtrl;
+const { createSurvey, getPendingSurveys, getSurveysByCategory, getPublishedSurveys, getSurveyById, updateSurveyById, deleteSurvey } = surveysCtrl;
 
 router.route('/')
   .post(/*checkToken, */createSurvey)
@@ -21,6 +21,9 @@ router.route('/:category')
 
 router.route('/encuesta/:id')
   .get(getSurveyById)
+
+router.route('/encuesta/:id')
+  .delete(checkAdminToken, deleteSurvey)
 
 
 module.exports = router;
