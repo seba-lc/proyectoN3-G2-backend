@@ -4,10 +4,13 @@ const categoryCtrl = require('./../controllers/category.controllers');
 
 const router = Router();
 
-const {createCategory, getCategoriesChecked} = categoryCtrl;
+const {createCategory, getCategories, updateCategory} = categoryCtrl;
 
 router.route('/')
-  .post(/*checkAdminToken, */createCategory)
-  .get(getCategoriesChecked);
+  .post(checkAdminToken, createCategory)
+  .get(getCategories);
+
+router.route('/:id')
+  .put(checkAdminToken, updateCategory);
 
 module.exports = router;

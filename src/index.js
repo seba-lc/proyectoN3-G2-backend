@@ -42,4 +42,9 @@ app.use('/api/encuestas/question', questionRouter);
     "answers": true,
     "category": 
 }
+
+{
+    "question": "Quien será la sorpresa del mundial?",
+    "answers": ["Dinamarca", "Senegal", "Canadá", "Gales"]
+}
 */

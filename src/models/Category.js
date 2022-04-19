@@ -22,7 +22,8 @@ const CategorySchema = new Schema({
     trim: true,
     uppercase: false,
     minlength: 2,
-    maxlength: 50
+    maxlength: 50,
+    default: "--fuchsia-rose"
   }
 }, {
   versionKey: false,

@@ -19,14 +19,26 @@ categoryCtrl.createCategory = async (req, res) => {
   }
 }
 
-categoryCtrl.getCategoriesChecked = async (req, res) => {
+categoryCtrl.getCategories = async (req, res) => {
   try {
-    const categories = await Category.find({state: true}, '-createdAt -updatedAt');
+    const categories = await Category.find().select('-createdAt -updatedAt');
     res.status(200).json(categories);
   } catch (error) {
     console.log(error);
     res.status(404).json({
       message: 'Error al obtener las categorías'
+    })
+  }
+}
+
+categoryCtrl.updateCategory = async (req, res) => {
+  try {
+    await Category.findByIdAndUpdate(req.params.id, {state: true}, {runValidators: true});
+    res.status(200).json({message: 'Producto actualizado correctamente'});
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      message: 'Error al actualizar la categoría'
     })
   }
 }

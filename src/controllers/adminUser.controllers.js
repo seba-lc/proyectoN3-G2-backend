@@ -52,4 +52,16 @@ adminUsersCtrl.getAdminUserByEmail = async (req, res) => {
   }
 }
 
+adminUsersCtrl.getAdminUserByToken = async (req, res) => {
+  try {
+    let user = await AdminUser.findById(req.id).select('-_id name email');
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      message: 'Error al cargar el usuario, intentelo nuevamente'
+    })
+  }
+}
+
 module.exports = adminUsersCtrl;
