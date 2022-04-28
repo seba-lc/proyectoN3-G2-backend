@@ -14,7 +14,6 @@ const app = express();
 require('dotenv').config();
 
 //configuración de puerto y db
-
 connectDB();
 app.set('port', process.env.PORT || 4500);
 app.listen(app.get('port'), () => {
@@ -36,17 +35,3 @@ app.use('/api/encuestas/surveys', surveyRouter);
 app.use('/api/encuestas/category', categoryRouter);
 app.use('/api/encuestas/question', questionRouter);
 app.use('/api/encuestas/answers', answerRouter);
-
-/*
-{
-    "surveyName": "Mundial Qatar 2022",
-    "questions": [],
-    "answers": true,
-    "category": 
-}
-
-{
-    "question": "Quien será la sorpresa del mundial?",
-    "answers": ["Dinamarca", "Senegal", "Canadá", "Gales"]
-}
-*/
