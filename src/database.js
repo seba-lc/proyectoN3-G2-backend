@@ -10,7 +10,4 @@ const connectDB = () => {
 
 module.exports = connectDB;
 
-/* 
-usuario: grupo2_21i
-contraseña: comision21ig2
-*/
+

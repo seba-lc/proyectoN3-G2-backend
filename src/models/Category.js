@@ -1,5 +1,3 @@
-/*NOMBRE, ESTADO*/
-
 const {model, Schema} = require('mongoose');
 
 const CategorySchema = new Schema({
@@ -12,7 +10,7 @@ const CategorySchema = new Schema({
     minlength: 2,
     maxlength: 50
   },
-  state: { //CONSULTAR POR ESTA PROPIEDAD
+  state: {
     type: Boolean,
     default: false,
     required: true

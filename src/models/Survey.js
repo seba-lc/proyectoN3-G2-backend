@@ -1,5 +1,3 @@
-/*NOMBRE, ESTADO, PREGUNTAS, RESPUESTAS, CATEGORIA*/
-
 const {model, Schema} = require('mongoose');
 
 const SurveySchema = new Schema({

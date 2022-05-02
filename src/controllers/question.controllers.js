@@ -1,4 +1,4 @@
-const Question = require('./../models/Question');
+const Question = require("./../models/Question");
 
 const questionCtrl = {};
 
@@ -10,9 +10,9 @@ questionCtrl.createQuestionObject = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      message: 'Error al crear la encuesta'
-    })
+      message: "Error al crear la encuesta",
+    });
   }
-}
+};
 
 module.exports = questionCtrl;

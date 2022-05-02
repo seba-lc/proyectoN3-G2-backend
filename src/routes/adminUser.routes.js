@@ -6,13 +6,6 @@ const router = Router();
 
 const { createAdminUser, getAdminUserByEmail, getAdminUserByToken } = adminUsersCtrl;
 
-/* USUARIO ADMIN:
-{
-  userEmail: admin@gmail.com,
-  userPassword: comision21ig2
-}
-*/
-
 router.route('/')
   .post(getAdminUserByEmail)
   .get(checkAdminToken, getAdminUserByToken);
